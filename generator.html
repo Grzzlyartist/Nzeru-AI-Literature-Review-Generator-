@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Literature Review Generator - Nzeru AI</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="generator.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Nzeru AI</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#features" class="nav-link">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="index.html#how-it-works" class="nav-link">How It Works</a>
+                </li>
+                <li class="nav-item">
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item" id="signOutItem" style="display:none;">
+                    <button id="signOutBtn" class="nav-link get-started-btn" style="background:transparent;border:2px solid #ef4444;color:#ef4444;border-radius:9999px;padding:.5rem 1rem;">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Sign out
+                    </button>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- App Shell with Library Sidebar -->
+    <section class="app-shell">
+        <!-- Library Sidebar -->
+        <aside class="library" id="library">
+            <div class="library-header">
+                <div class="brand"></div>
+                <button class="btn btn-primary new-chat" id="newChatBtn">
+                    <i class="fas fa-plus"></i>
+                    New chat
+                </button>
+                <div class="library-search">
+                    <input type="text" id="librarySearch" placeholder="Search history...">
+                    <button id="librarySearchBtn" aria-label="Search"><i class="fas fa-search"></i></button>
+                </div>
+            </div>
+
+            <div class="library-section">
+                <div class="library-section-title">Your conversations</div>
+                <button class="link clear-all" id="clearAllBtn">Clear All</button>
+            </div>
+
+            <ul class="library-list" id="libraryList">
+                <!-- dynamic items -->
+            </ul>
+
+            <div class="library-footer">
+                <div class="user-pill">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="currentUserName">You</span>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="app-main">
+            <!-- Generator Section -->
+            <section class="generator-section">
+                <div class="container">
+                    <div class="generator-header">
+                        <h1>AI Literature Review Generator</h1>
+                        <p>Enter your research topic and let our AI create a comprehensive literature review for you</p>
+                        <div class="trial-counter" id="trialCounter" title="Free trial usage">
+                            <i class="fas fa-bolt"></i>
+                            <span><strong>10</strong> trials left</span>
+                        </div>
+                    </div>
+
+                    <!-- Generator Form -->
+                    <div class="generator-form-container">
+                        <form id="reviewForm" class="generator-form">
+                            <div class="form-group">
+                                <label for="researchTopic">
+                                    <i class="fas fa-search"></i>
+                                    Research Topic *
+                                </label>
+                                <input 
+                                    type="text" 
+                                    id="researchTopic" 
+                                    name="topic" 
+                                    placeholder="e.g., Machine Learning Applications in Healthcare"
+                                    required
+                                >
+                            </div>
+
+                            <div class="form-group">
+                                <label for="researchObjectives">
+                                    <i class="fas fa-bullseye"></i>
+                                    Research Objectives (optional)
+                                </label>
+                                <textarea id="researchObjectives" name="objectives" rows="4" placeholder="List your specific objectives or questions the review should address"></textarea>
+                            </div>
+
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="field">
+                                        <i class="fas fa-graduation-cap"></i>
+                                        Academic Field
+                                    </label>
+                                    <select id="field" name="field">
+                                        <option value="general">General</option>
+                                        <option value="computer-science">Computer Science</option>
+                                        <option value="medicine">Medicine & Healthcare</option>
+                                        <option value="engineering">Engineering</option>
+                                        <option value="social-sciences">Social Sciences</option>
+                                        <option value="business">Business & Economics</option>
+                                        <option value="psychology">Psychology</option>
+                                        <option value="biology">Biology</option>
+                                        <option value="physics">Physics</option>
+                                        <option value="chemistry">Chemistry</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="maxSources">
+                                        <i class="fas fa-file-alt"></i>
+                                        Max Sources
+                                    </label>
+                                    <select id="maxSources" name="max_sources">
+                                        <option value="10">10 sources</option>
+                                        <option value="20" selected>20 sources</option>
+                                        <option value="30">30 sources</option>
+                                        <option value="50">50 sources</option>
+                                    </select>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="reviewLength">
+                                        <i class="fas fa-ruler"></i>
+                                        Review Length
+                                    </label>
+                                    <select id="reviewLength" name="review_length">
+                                        <option value="brief">Brief</option>
+                                        <option value="comprehensive" selected>Comprehensive</option>
+                                        <option value="detailed">Detailed</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-primary btn-large" id="generateBtn">
+                                    <i class="fas fa-magic"></i>
+                                    Generate Literature Review
+                                </button>
+                                <button type="button" class="btn btn-secondary" id="clearBtn">
+                                    <i class="fas fa-eraser"></i>
+                                    Clear Form
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Loading State -->
+                    <div id="loadingState" class="loading-state" style="display: none;">
+                        <div class="loading-content">
+                            <div class="loading-spinner"></div>
+                            <h3>Generating Your Literature Review</h3>
+                            <p>Our AI is searching academic databases and analyzing relevant papers...</p>
+                            <div class="loading-steps">
+                                <div class="step">
+                                    <i class="fas fa-search"></i>
+                                    <span>Searching academic databases</span>
+                                </div>
+                                <div class="step">
+                                    <i class="fas fa-brain"></i>
+                                    <span>Analyzing research papers</span>
+                                </div>
+                                <div class="step">
+                                    <i class="fas fa-edit"></i>
+                                    <span>Synthesizing findings</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Results Section -->
+                    <div id="resultsSection" class="results-section" style="display: none;">
+                        <div class="results-header">
+                            <h2>Generated Literature Review</h2>
+                            <div class="results-actions">
+                                <button class="btn btn-secondary" id="downloadBtn">
+                                    <i class="fas fa-download"></i>
+                                    Download PDF
+                                </button>
+                                <button class="btn btn-secondary" id="saveBtn">
+                                    <i class="fas fa-save"></i>
+                                    Save to Library
+                                </button>
+                                <button class="btn btn-secondary" id="shareBtn">
+                                    <i class="fas fa-share"></i>
+                                    Share
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="results-content">
+                            <div class="review-info">
+                                <div class="info-item">
+                                    <i class="fas fa-tag"></i>
+                                    <span id="reviewTopic"></span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-file-alt"></i>
+                                    <span id="reviewSources"></span>
+                                </div>
+                                <div class="info-item">
+                                    <i class="fas fa-clock"></i>
+                                    <span id="reviewDate"></span>
+                                </div>
+                            </div>
+
+                            <div class="review-content">
+                                <div id="reviewText" class="review-text"></div>
+                            </div>
+
+                            <div class="sources-section">
+                                <h3>Sources Used</h3>
+                                <div id="sourcesList" class="sources-list"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Error State -->
+                    <div id="errorState" class="error-state" style="display: none;">
+                        <div class="error-content">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h3>Oops! Something went wrong</h3>
+                            <p id="errorMessage"></p>
+                            <button class="btn btn-primary" onclick="location.reload()">
+                                <i class="fas fa-redo"></i>
+                                Try Again
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </section>
+
+    <!-- Upgrade Modal -->
+    <div id="upgradeModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Upgrade to Continue</h2>
+                <button class="close-btn" onclick="document.getElementById('upgradeModal').style.display='none';document.body.style.overflow='auto';">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>You have reached your free trial limit of 10 reviews. Upgrade to Pro for unlimited access and premium features.</p>
+                <div class="form-actions">
+                    <a href="pricing.html" class="btn btn-primary btn-large">
+                        <i class="fas fa-rocket"></i>
+                        View Plans & Upgrade
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Nzeru AI</span>
+                    </div>
+                    <p>Empowering students and researchers with AI-powered literature review generation.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#docs">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#cookies">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Nzeru AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="generator.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+
+

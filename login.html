@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - My Web App</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="auth-container">
+        <h1>Welcome!</h1>
+        <p>Please sign in or create an account to continue.</p>
+        
+        <div class="form-container">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            
+            <button id="signInBtn">Sign In</button>
+            <button id="signUpBtn">Sign Up</button>
+        </div>
+        
+        <div class="divider">
+            <span>OR</span>
+        </div>
+        
+        <button id="googleSignInBtn">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png" alt="Google logo" class="google-logo">
+            Sign in with Google
+        </button>
+        
+        <p id="error-message" class="error"></p>
+    </div>
+
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

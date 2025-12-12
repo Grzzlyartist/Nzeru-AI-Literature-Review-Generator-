@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nzeru AI - AI-Powered Literature Review Generator</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="media/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="media/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Nzeru AI</span>
+            </div>
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#features" class="nav-link">Features</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#how-it-works" class="nav-link">How It Works</a>
+                </li>
+                <li class="nav-item">
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a href="contact.html" class="nav-link">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link get-started-btn btn-outline-circle">
+                        <span>SignIn</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Video Modal -->
+    <div id="videoModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <video id="demoVideo" controls>
+                <source src="media/Screen-Recording.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <span class="orb orb-blue"></span>
+        <span class="orb orb-purple"></span>
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    Generate Comprehensive Literature Reviews with AI
+                </h1>
+                <p class="hero-subtitle">
+                    Transform your research process with our AI-powered platform that automatically retrieves, 
+                    analyzes, and synthesizes academic literature to create comprehensive literature reviews.
+                </p>
+                <div class="hero-buttons">
+                    <a href="login.html" class="btn btn-primary btn-ring">
+                        <i class="fas fa-magic"></i>
+                        Start Generating
+                    </a>
+                    <button class="btn btn-secondary btn-ring" onclick="scrollToFeatures()">
+                        <i class="fas fa-play"></i>
+                        Watch Demo
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Why Choose Nzeru AI?</h2>
+                <p>Powerful features designed specifically for academic research</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-search-plus"></i>
+                    </div>
+                    <h3>Intelligent Literature Search</h3>
+                    <p>AI-powered search across academic databases, journals, and research papers to find the most relevant sources for your topic.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3>Smart Synthesis</h3>
+                    <p>Advanced AI algorithms analyze and synthesize multiple sources to create coherent, well-structured literature reviews.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-edit"></i>
+                    </div>
+                    <h3>Customizable Format</h3>
+                    <p>Generate reviews in your preferred academic format with customizable templates and citation styles.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Time Saving</h3>
+                    <p>Reduce weeks of manual research to hours with our automated literature review generation process.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Academic Integrity</h3>
+                    <p>Maintain academic standards with proper citations, source verification, and plagiarism-free content generation.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works">
+        <div class="container">
+            <div class="section-header">
+                <h2>How It Works</h2>
+                <p>Three simple steps to generate your literature review</p>
+            </div>
+            <div class="steps-container">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Enter Your Research Topic</h3>
+                        <p>Simply type in your specific research topic or question. Our AI will understand the context and scope of your research.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>AI Retrieves Relevant Literature</h3>
+                        <p>Our AI searches through academic databases, journals, and research papers to find the most relevant and recent sources.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Generate & Customize</h3>
+                        <p>Receive a comprehensive literature review that you can edit, customize, and save to your personal library.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Ready to Transform Your Research?</h2>
+                <p>Join thousands of students and researchers who are already saving time and improving their academic work.</p>
+                <a href="login.html" class="btn btn-primary btn-large btn-ring">
+                    <i class="fas fa-rocket"></i>
+                    Get Started Now
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="footer-logo">
+                        <i class="fas fa-graduation-cap"></i>
+                        <span>Nzeru AI</span>
+                    </div>
+                    <p>Empowering students and researchers with AI-powered literature review generation.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Product</h4>
+                    <ul>
+                        <li><a href="index.html#features">Features</a></li>
+                        <li><a href="index.html#how-it-works">How It Works</a></li>
+                        <li><a href="pricing.html">Pricing</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="contact.html">Contact Us</a></li>
+                        <li><a href="#help">Help Center</a></li>
+                        <li><a href="#docs">Documentation</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#terms">Terms of Service</a></li>
+                        <li><a href="#cookies">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Nzeru AI. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+     
+</body>
+</html>
